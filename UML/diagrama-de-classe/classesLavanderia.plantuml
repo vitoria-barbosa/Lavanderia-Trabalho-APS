@@ -1,0 +1,57 @@
+@startuml Lavanderia Automatizada
+
+class Cliente{
+    - nome: string
+    - telefone: string
+}
+
+class Funcionario{
+    - nome: string
+    - telefone: string
+    - usuario: string
+    - senha: string
+}
+
+class Pedido{
+    - dataHora: DateTime
+    - valorTotal: double
+    - formaPagamento: string
+
+    + adicionarItemPedido()
+    + adicionarCliente()
+    + calcularValorTotal()
+    + calcularTempoEstimado()
+    + cancelarPedido()
+    + confirmarPedido()
+    
+}
+
+class ItemPedido{
+    - servico: Servico
+    - peca: TipoPeca
+    - valor: double
+}
+
+enum Servico{
+    LAVAR
+    SECAR
+    PASSAR
+    PACOTE_COMPLETO
+}
+
+enum TipoPeca{
+    ROUPA_NORMAL
+    ROUPA_DELICADA
+    ROUPA_INTIMA
+    TOALHA
+    CAMA
+    TAPETE  
+}
+
+Pedido *-- "*" ItemPedido: contem
+Pedido -- Funcionario: registra
+Pedido -- Cliente: faz
+ItemPedido -- Servico
+ItemPedido -- TipoPeca
+
+@enduml
