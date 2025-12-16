@@ -1,0 +1,21 @@
+@startuml
+title Diagrama de Sequência: Preencher Pedido
+
+actor Funcionario
+participant Sistema
+database BancoDeDados
+
+Funcionario->>Sistema: identificarCliente(nomeCliente, telefone)
+activate Sistema
+deactivate Sistema
+
+loop para cada peça adicionada
+Funcionario->Sistema: adicionarPeca(tipo, servico)
+activate Sistema
+Sistema->BancoDeDados:verificarPreco(tipo, servico)
+BancoDeDados-->Sistema: preco
+Sistema->Funcionario: MostrarPrecoPeca(preco)
+deactivate Sistema
+end
+
+@enduml

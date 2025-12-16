@@ -1,0 +1,21 @@
+@startuml
+title Diagrama de Sequência: Confirmar Pedido e Cancelar Pedido
+
+actor Funcionario
+participant Sistema
+database BancoDeDados
+
+Sistema->Funcionario: solicitarConfirmacaoPedido()
+
+alt cliente confirma
+Funcionario->Sistema: confirmaPedido()
+Sistema->BancoDeDados: registraPedido(pedido)
+Sistema-->Funcionario: mensagemPedidoRealizado
+end
+
+alt cliente cancela
+Funcionario->Sistema: cancelaPedido()
+Sistema->Sistema: limpaPedido
+Sistema-->Funcionario: voltaParaTelaInicial()
+end
+@enduml
