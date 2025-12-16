@@ -1,0 +1,31 @@
+@startuml 
+title Diagrama de Sequência: Calcular Valor e Tempo
+
+actor Funcionario
+participant Sistema
+
+note right of Funcionario
+Clica em "Continuar"
+end note
+
+alt quantidadePeca >= 1
+Funcionario->Sistema: ContinuarPedido(pedido)
+activate Sistema
+Sistema->Sistema: calcularTotal(pedido)
+Sistema->Sistema: calcularTempoEstimado(pedido)
+Sistema-->Funcionario: dadosPedido(total, tempoEstimado)
+
+else quantidadePeca < 1
+Sistema-->Funcionario: mensagemNenhumaPecaAdicionada
+deactivate Sistema
+end
+
+
+alt cliente desiste do pedido
+note right of Funcionario
+Clica em "Limpar tudo"
+end note
+Funcionario->Sistema: LimparPedido()
+end
+
+@enduml

@@ -1,0 +1,22 @@
+@startuml
+title Diagrama de Sequência: Fazer Login
+
+actor Funcionario
+participant Sistema
+database BancoDeDados
+
+Funcionario->Sistema: preencherInfos(codFunc, senha)
+activate Sistema
+Sistema->BancoDeDados: validarInfos(codFunc, senha)
+
+
+alt Dados válidos
+BancoDeDados-->Sistema: dadosValidos
+Sistema->Funcionario: mostraTelaDeVenda
+end
+
+alt Dados inválidos
+BancoDeDados-->Sistema: dadosInvalidos
+Sistema->Funcionario: mensagemDadosInvalidos
+end
+@enduml
