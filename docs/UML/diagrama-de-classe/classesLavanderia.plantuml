@@ -20,10 +20,8 @@ class Pedido{
     + adicionarItemPedido()
     + adicionarCliente()
     + calcularValorTotal()
-    + calcularTempoEstimado()
     + cancelarPedido()
     + confirmarPedido()
-    
 }
 
 class ItemPedido{
