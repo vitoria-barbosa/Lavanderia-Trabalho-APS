@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="css/styles.css">
     <title>Lavanderia Automatizada</title>
 </head>
+
 <body>
     <div class="container">
         <h1>Área do Funcionário</h1>
@@ -30,47 +32,48 @@
         </form>
 
         <p class="subtitle">Acesso restrito ao sistema da lavanderia</p>
-        
+
     </div>
-        <script>
-            function logar(){
-                var loginDigitado = document.getElementById("login").value;
-                var senhaDigitada = document.getElementById("senha").value;
-                var mensagemErro = document.getElementById("mensagemErro");
+    <script>
+        function logar() {
+            var loginDigitado = document.getElementById("login").value;
+            var senhaDigitada = document.getElementById("senha").value;
+            var mensagemErro = document.getElementById("mensagemErro");
 
-                mensagemErro.textContent = "";
+            mensagemErro.textContent = "";
 
-                fetch("/loginUsuarios/usuarios.json")
-                    .then(response => response.json())
-                    .then(usuarios => {
-                        let encontrado = false;
-                        for (let usuario of usuarios){
-                            if (usuario.login === loginDigitado && usuario.senha === senhaDigitada) {
-                                encontrado = true;
-                                break;
-                            }
+            fetch("/loginUsuarios/usuarios.json")
+                .then(response => response.json())
+                .then(usuarios => {
+                    let encontrado = false;
+                    for (let usuario of usuarios) {
+                        if (usuario.login === loginDigitado && usuario.senha === senhaDigitada) {
+                            encontrado = true;
+                            break;
                         }
+                    }
 
-                        if (encontrado){
-                            window.location.href = "index.html";
-                        }
-                        else{
-                            mensagemErro.textContent = "Usuário ou senha inválidos";
-                        }
-                    });
+                    if (encontrado) {
+                        window.location.href = "pedido.html";
+                    }
+                    else {
+                        mensagemErro.textContent = "Usuário ou senha inválidos";
+                    }
+                });
+        }
+
+
+        function toggleSenha() {
+            const senhaInput = document.getElementById("senha");
+
+            if (senhaInput.type === "password") {
+                senhaInput.type = "text";
             }
-
-
-            function toggleSenha() {
-                const senhaInput = document.getElementById("senha");
-
-                if (senhaInput.type === "password") {
-                    senhaInput.type = "text";
-                }
-                else {
-                    senhaInput.type = "password";
-                }
+            else {
+                senhaInput.type = "password";
             }
-        </script>
+        }
+    </script>
 </body>
+
 </html>

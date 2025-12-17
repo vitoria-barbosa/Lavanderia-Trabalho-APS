@@ -38,14 +38,16 @@ function adicionarDados() {
 function recibo(event) {
   event.preventDefault();
 
-  const nomeCliente = document.getElementById("nome-cliente").value;
-  const telefone = document.getElementById("tel").value;
   const recibo = document.getElementById("recibo");
+  recibo.style.display = "block";
 
   recibo.innerHTML = "";
 
+  const nomeCliente = document.getElementById("nome-cliente").value;
+  const telefone = document.getElementById("tel").value;
+
   const titulo = document.createElement("h2");
-  titulo.textContent = "Recibo:";
+  titulo.textContent = "Valor Total:";
   recibo.appendChild(titulo);
 
   const pNome = document.createElement("p");
@@ -75,5 +77,46 @@ function recibo(event) {
     pTotal.textContent = `Total: R$ ${total.toFixed(2)}`;
   }
 
+  pTotal.className = "total";
   recibo.appendChild(pTotal);
+
+  const acoes = document.createElement("div");
+  acoes.className = "acoes";
+
+  const cancelar = document.createElement("button");
+  cancelar.textContent = "Cancelar Pedido";
+  cancelar.className = "button-submit";
+  cancelar.style.backgroundColor = "red";
+  cancelar.style.color = "white";
+  cancelar.onclick = () => {
+    recibo.style.display = "none";
+    limparPedido();
+  };
+
+  const confirmar = document.createElement("button");
+  confirmar.textContent = "Confirmar Pedido";
+  confirmar.className = "button-submit";
+  confirmar.style.backgroundColor = "green";
+  confirmar.style.color = "white";
+  confirmar.onclick = () => {
+    alert("Pedido confirmado!");
+    recibo.style.display = "none";
+    limparPedido();
+  };
+
+  acoes.appendChild(cancelar);
+  acoes.appendChild(confirmar);
+  recibo.appendChild(acoes);
+}
+
+function limparPedido() {
+  const tbody = document.getElementById("tbody");
+  tbody.innerHTML = "";
+
+  servicos.length = 0;
+
+  document.getElementById("nome-cliente").value = "";
+  document.getElementById("tel").value = "";
+  document.getElementById("tipo-peca").value = "Roupa Normal";
+  document.getElementById("servico").value = "Lavar";
 }

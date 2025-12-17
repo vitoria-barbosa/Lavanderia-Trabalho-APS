@@ -1,18 +1,17 @@
-@startuml 
+@startuml Lavanderia automatizada
 title Diagrama de Sequência: Calcular Valor e Tempo
 
 actor Funcionario
 participant Sistema
 
 note right of Funcionario
-Clica em "Continuar"
+Clica em "Total"
 end note
 
 alt quantidadePeca >= 1
 Funcionario->Sistema: ContinuarPedido(pedido)
 activate Sistema
 Sistema->Sistema: calcularTotal(pedido)
-Sistema->Sistema: calcularTempoEstimado(pedido)
 Sistema-->Funcionario: dadosPedido(total, tempoEstimado)
 
 else quantidadePeca < 1
