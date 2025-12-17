@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lavanderia Automatizada</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+  <div class="pedido-styles">
+    <h2>Lavanderia Automatizada</h2>
+
+    <form id="pedido">
+      <label>
+        Cliente:
+        <br />
+        <input type="text" id="nome-cliente" placeholder="Thalisson Show" />
+      </label>
+      <label>
+        Telefone:
+        <br />
+        <input type="text" id="tel" placeholder="(86) 8888-8888" />
+      </label>
+
+      <label>
+        Peças:
+        <br />
+        <select id="tipo-peca">
+          <option value="Roupa Normal">Roupa normal</option>
+          <option value="Roupa Delicada">Roupa delicada</option>
+          <option value="Roupa Íntima">Roupa íntima</option>
+          <option value="Toalha">Toalha</option>
+          <option value="Roupa de Cama">Roupa de Cama</option>
+          <option value="Tapete">Tapete</option>
+        </select>
+      </label>
+      <label>
+        Serviço:
+        <br />
+        <select id="servico" onchange="visualizarPreco()">
+          <option value="Lavar" data-preco="20.00">Lavar</option>
+          <option value="Secar" data-preco="15.00">Secar</option>
+          <option value="Passar" data-preco="30.00">Passar</option>
+          <option value="Serviço Completo" data-preco="60.00">
+            Serviço completo
+          </option>
+        </select>
+      </label>
+
+      <button type="button" class="button-submit" onclick="adicionarDados()">
+        Adicionar
+      </button>
+      <input class="button-submit" style="background-color: navy; color: white" type="submit" value="Recibo"
+        onclick="recibo(event)" />
+    </form>
+
+    <br />
+    <h4>Peças adicionadas com seus respectivos serviços:</h4>
+    <table>
+      <thead>
+        <tr>
+          <th>Tipo Peça</th>
+          <th>Serviço</th>
+          <th>Preço</th>
+        </tr>
+      </thead>
+      <tbody id="tbody"></tbody>
+    </table>
+  </div>
+
+  <div id="recibo" class="recibo"></div>
+  <script src="javascript/script.js"></script>
+
+</body>
+
+</html>

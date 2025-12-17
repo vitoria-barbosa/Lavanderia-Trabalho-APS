@@ -1,0 +1,82 @@
+@import url("https://fonts.googleapis.com/css2?family=Kedebideri:wght@400;500;600;700;800;900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap");
+
+body,
+html {
+  font-family: "Kedebideri", sans-serif;
+  margin: 0px;
+  padding: 0px;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #e6f2ff;
+}
+
+.pedido-styles {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 30%;
+  padding: 50px;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  border-radius: 30px;
+  box-sizing: c;
+  background-color: white;
+  color: #003366;
+}
+
+.pedido-styles h2,
+h4 {
+  text-align: center;
+  font-weight: 200;
+  color: #003366;
+  font-weight: bold;
+}
+
+.pedido-styles form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pedido-styles input[type="text"],
+select {
+  width: 200px;
+  padding: 10px;
+  border: 1px solid gainsboro;
+  border-radius: 15px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+
+.button-submit {
+  background-color: #ffcc00;
+  width: 60%;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  color: rgb(0, 0, 110);
+}
+
+.pedido-styles table {
+  width: 70%;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+
+.pedido-styles th,
+td {
+  padding: 14px 18px;
+  text-align: center;
+  color: #003366;
+}
+
+.container-button {
+  margin-top: 20px;
+  display: flex;
+  width: 300px;
+}
