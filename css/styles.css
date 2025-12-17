@@ -1,0 +1,150 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Kedebideri", sans-serif;
+}
+
+/* Fundo da página */
+body {
+    width: 100vw;
+    height: 100vh;
+    background-color: #e6f2ff; 
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Quadrado central */
+.container {
+    width: 40vw; 
+    min-height: 60vh;  
+
+    background-color: #ffffff;
+    border-top: 8px solid #ffcc00;
+    border-radius: 25px; /* cantos arredondados */
+    padding: 30px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+
+.container h1 {
+    color: #003366;
+    margin-top: 2px auto;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+/* Botões */
+button {
+    background-color: #ffcc00; 
+    color: #003366; 
+
+    border: none;
+    border-radius: 10px;
+    padding: 12px 25px;
+    font-size: 16px;
+    cursor: pointer;
+
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Formulário */
+.form-login {
+    width: 100%;
+    max-width: 320px; /* limita em telas grandes */
+    
+    display: flex;
+    flex-direction: column;
+    gap: 8px; /* espaço entre os campos */
+
+    margin-top: 20px;
+}
+
+.btn-login{
+    width: 100%;
+    padding: 12px;
+
+    background-color: #ffcc00;
+    color: #003366;
+
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 1px;
+}
+
+.btn-login:hover {
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.input-field{
+    width: 100%;
+    padding: 12px;
+
+    border: 1px solid #ccc;
+    border-radius: 10px;
+
+    margin-bottom: 0px;
+
+    font-size: 15px;
+}
+
+.input-field:focus {
+    outline: none;
+    border-color: #003366;
+}
+
+.container .error-msg {
+    font-size: 14px;
+    color: #d10000;
+    text-align: left;
+    
+    margin-top: -4px;
+    min-height: 12px;
+    margin-bottom: 2px;
+
+
+}
+
+.info {
+    margin-top: 5px;
+    font-size: 12px;
+    color: #666;
+    text-align: center;
+}
+
+.subtitle {
+    font-size: 14px;
+    color: #003366;
+    text-align: center;
+    margin-top: 15px;
+}
+
+.show-password {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    font-size: 14px;
+    color: #003366;
+
+    margin-top: -4px;
+}
+
+.show-password label {
+    cursor: pointer;
+}

@@ -3,14 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Kedebideri&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
     <title>Lavanderia Automatizada</title>
 </head>
 <body>
     <div class="container">
-        <h1>Título</h1>
-        <p>Texto de exemplo</p>
-        <button>Clique aqui</button>
-    </div>    
+        <h1>Área do Funcionário</h1>
+
+        <form class="form-login">
+            <input type="text" placeholder="Usuário do funcionário" id="login" class="input-field">
+            <input type="password" placeholder="Senha de acesso" id="senha" class="input-field">
+
+            <div class="show-password">
+                <input type="checkbox" id="mostrarSenha" onclick="toggleSenha()">
+                <label for="mostrarSenha">Mostrar senha</label>
+            </div>
+
+            <p class="error-msg" id="mensagemErro"></p>
+            <input type="button" value="Entrar" class="btn-login" onclick="logar()">
+
+
+            <small class="info">
+                Somente funcionários autorizados
+            </small>
+        </form>
+
+        <p class="subtitle">Acesso restrito ao sistema da lavanderia</p>
+        
+    </div>
+        <script>
+            function logar(){
+                var loginDigitado = document.getElementById("login").value;
+                var senhaDigitada = document.getElementById("senha").value;
+                var mensagemErro = document.getElementById("mensagemErro");
+
+                mensagemErro.textContent = "";
+
+                fetch("/loginUsuarios/usuarios.json")
+                    .then(response => response.json())
+                    .then(usuarios => {
+                        let encontrado = false;
+                        for (let usuario of usuarios){
+                            if (usuario.login === loginDigitado && usuario.senha === senhaDigitada) {
+                                encontrado = true;
+                                break;
+                            }
+                        }
+
+                        if (encontrado){
+                            window.location.href = "index.html";
+                        }
+                        else{
+                            mensagemErro.textContent = "Usuário ou senha inválidos";
+                        }
+                    });
+            }
+
+
+            function toggleSenha() {
+                const senhaInput = document.getElementById("senha");
+
+                if (senhaInput.type === "password") {
+                    senhaInput.type = "text";
+                }
+                else {
+                    senhaInput.type = "password";
+                }
+            }
+        </script>
 </body>
 </html>
